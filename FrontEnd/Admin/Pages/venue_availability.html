@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venue Availability</title>
+  <link rel="stylesheet" href="/Admin/Styles/venue_availability.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/Organizer/images/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Organizer/images/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Organizer/images/favicon_io/favicon-16x16.png">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Campus Connect</div>
+    <ul>
+      <li><a href="/Admin/Pages/landing_page.html">Home</a></li>
+      <li><a href="">Contact</a></li>
+      <li><a href="">SignIn/SignUp</a></li>
+    </ul>
+  </nav>
+
+  <div class="calendar">
+    <h1>Venue Availability</h1>
+    <div class="calendar-grid" id="calendar-grid">
+      <!-- Days will be dynamically added here -->
+    </div>
+  </div>
+
+  <!-- Date Popup -->
+  <div id="date-popup" class="popup">
+    <div class="popup-card">
+      <h2 id="selected-date">Selected Date</h2>
+      
+      <!-- Slot Table -->
+      <div id="slot-section">
+        <h3>Available Slots</h3>
+        <table id="slot-table">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Venue</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Slots will be dynamically populated -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Add Slot Section -->
+      <div id="add-slot-section">
+        <h3>Add New Slot</h3>
+        <label for="slot-date">Date:</label>
+        <input type="date" id="slot-date" required />
+
+        <label for="slot-start-time">Start Time:</label>
+        <input type="time" id="slot-start-time" required />
+
+        <label for="slot-end-time">End Time:</label>
+        <input type="time" id="slot-end-time" required />
+
+        <label for="slot-venue">Venue:</label>
+        <input type="text" id="slot-venue" placeholder="Venue Name" required />
+
+        <button id="add-slot-btn" class="approve-btn">Add Slot</button>
+      </div>
+
+      <button id="close-popup" class="close-btn">Close</button>
+    </div>
+  </div>
+
+   <!-- Footer -->
+   <footer>
+    <p>&copy; 2024 Campus Connect. All Rights Reserved.</p>
+    <div class="social-links">
+      <a href="https://in.linkedin.com/in/parv-munjal-aa2234154">LinkedIn</a>
+      <a href="https://www.instagram.com/parv.1350/">Instagram</a>
+    </div>
+  </footer>
+
+  <script src="/Admin/Js/venue_availability.js"></script>
+</body>
+</html>

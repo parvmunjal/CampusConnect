@@ -1,0 +1,152 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f9; /* Light gray background for contrast */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #212121; /* Dark gray */
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+}
+
+.navbar ul li {
+  margin: 0 20px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* Events Section Styling */
+.events {
+  padding: 100px 20px 50px;
+  text-align: center;
+  flex-grow: 1; /* Makes sure the events section takes up the remaining space */
+}
+
+.events h1 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Events Grid and Card Styles */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.event-card {
+  background-color: #ffffff; /* White card background */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.event-title {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  color: #d32f2f; /* Primary color matching theme */
+}
+
+.event-organizer {
+  font-size: 1.1em;
+  color: #616161; /* Slightly gray for organizer name */
+  margin-bottom: 15px; /* Space between organizer and date */
+}
+
+.event-date {
+  color: #616161; /* Subtle gray for dates */
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.view-details-btn {
+  background-color: #fbc02d; /* Accent color for button */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1em;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.view-details-btn:hover {
+  background-color: #fb8c00; /* Darker accent color */
+  transform: scale(1.05);
+}
+
+/* Footer Styling */
+footer {
+  background-color: #212121;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+footer p {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+footer .social-links {
+  margin-top: 7px;
+}
+
+footer .social-links a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 1.1em;
+}
+
+footer .social-links a:hover {
+  color: #ff9800;
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Events - Campus Connect</title>
+  <link rel="stylesheet" href="/Organizer/Styles/manage_event.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/Organizer/images/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Organizer/images/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Organizer/images/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Campus Connect</div>
+    <ul>
+      <li><a href="/Organizer/Pages/landing_page.html">Home</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">SignIn/SignUp</a></li>
+    </ul>
+  </nav>
+
+  <!-- Manage Events Section -->
+  <section class="manage-events">
+    <h1>Manage Events</h1>
+    <div id="manage-events-list" class="events-list">
+      <!-- Dynamically generated event items will go here -->
+    </div>
+  </section>
+
+  <div id="event-popup" class="popup">
+    <div class="popup-card">
+      <!-- View Registrations Dropdown -->
+<div class="dropdown-container">
+  <button class="dropdown-btn" id="toggle-view-reg" onclick="loadRegistrations()">
+    Registration Analysis 
+    <span class="dropdown-icon">+</span>
+  </button>
+
+  <!-- Dropdown Content for View Registrations -->
+  <div id="registration-dropdown" class="dropdown-content">
+    <div class="registration-details">
+      <!-- Left Side - Number of Registrations -->
+      <div class="left-side">
+        <h3>Registrations: <span id="registration-count">0</span></h3>
+      </div>
+
+      <!-- Right Side - Scrollable User List -->
+      <div class="right-side">
+        <ul id="user-list">
+          <!-- User names will be dynamically inserted here -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Event Dropdown -->
+<div class="dropdown-container">
+  <button class="dropdown-btn" id="toggle-edit-event">
+    Edit Event <span class="dropdown-icon">+</span>
+  </button>
+
+  <div id="edit-event-dropdown" class="dropdown-content">
+    <form id="edit-event-form" class="edit-event-form">
+      <div class="form-container">
+        <!-- Left Side (Poster URL & Preview) -->
+        <div class="popup-left">
+          <label for="poster-url">Poster URL:</label>
+          <input type="url" id="poster-url" placeholder="Enter Poster URL">
+          <img id="poster-preview" src="" alt="Poster Preview" style="display:none;">
+        </div>
+
+        <!-- Right Side (Other Fields) -->
+        <div class="popup-right">
+          <label for="event-name">Title:</label>
+          <input type="text" id="event-name" placeholder="Enter event name">
+
+          <label for="event-venue">Venue:</label>
+          <input type="text" id="event-venue" placeholder="Enter venue">
+
+          <label for="event-description">Description:</label>
+          <textarea id="event-description" placeholder="Enter event description"></textarea>
+
+          <label for="event-date-time">Date and Time:</label>
+          <input type="datetime-local" id="event-date-time">
+
+          <label for="registration-fee">Registration Fee:</label>
+          <input type="number" id="registration-fee" placeholder="Enter fee">
+
+          <button type="submit" id="save-event-btn">Save Event</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+    </div>
+    <button id="popup-close" class="close-btn">X</button>
+  </div>
+  
+  
+  
+  
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Campus Connect. All Rights Reserved.</p>
+    <div class="social-links">
+      <a href="https://in.linkedin.com/in/parv-munjal-aa2234154">LinkedIn</a>
+      <a href="https://www.instagram.com/parv.1350/">Instagram</a>
+    </div>
+  </footer>
+
+  <script src="/Organizer/Js/manage_event.js"></script>
+</body>
+</html>

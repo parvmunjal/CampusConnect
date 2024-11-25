@@ -1,0 +1,221 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #d32f2f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0 20px;
+    position: relative;
+    padding-bottom: 60px;
+  }
+  
+  /* Navbar Styling */
+  .navbar {
+    background-color: #212121;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  .navbar ul li {
+    margin: 0 20px;
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .navbar a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Club Details Page Styling */
+  .club-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 0;
+    width: 100%;
+    max-width: 1200px;
+    min-height: 100vh;
+  }
+  
+  .club-card {
+    display: flex;
+    width: 90%;
+    max-width: 1100px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    flex-direction: row;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .club-logo-section {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 15px;
+  }
+  
+  .club-logo-section img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .club-logo-section h1 {
+    font-size: 2em;
+    color: #d32f2f;
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  .contact-info {
+    margin-top: 10px;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #616161;
+  }
+  
+  .club-info-section {
+    width: 65%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .club-info-section p {
+    font-size: 1.2em;
+    color: #616161;
+    margin-bottom: 15px;
+    text-align: justify;
+  }
+
+  /* "Be a Member" Button Styling */
+.member-button {
+    background-color: #fbc02d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: auto;
+  }
+  
+  .member-button:hover {
+    background-color: #fb8c00;
+    transform: scale(1.05);
+  }
+  
+  
+  /* Gallery Styling */
+  .gallery {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    gap: 10px;
+  }
+  
+  .gallery img {
+    width: 400px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .gallery button {
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #d32f2f;
+    cursor: pointer;
+  }
+  
+  .gallery button:hover {
+    color: #fb8c00;
+  }
+  
+  /* Footer Styling */
+  footer {
+    background-color: #212121;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 1.2em;
+  }
+  
+  footer .social-links {
+    margin-top: 7px;
+  }
+  
+  footer .social-links a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1.1em;
+  }
+  
+  footer .social-links a:hover {
+    color: #ff9800;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .club-card {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .club-logo-section,
+    .club-info-section {
+      width: 100%;
+    }
+  }
+  
