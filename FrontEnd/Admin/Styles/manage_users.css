@@ -1,0 +1,149 @@
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Navbar Styling */
+  .navbar {
+    background-color: #212121;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  .navbar ul li {
+    margin: 0 20px;
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .navbar a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Manage Users Section Styling */
+  .manage-users {
+    margin-top: 50px;
+    padding: 40px 20px;
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  .manage-users h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #d32f2f;
+  }
+  
+  .users-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .user-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 2px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-item span {
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  .user-item .user-name {
+    font-weight: bold;
+    flex: 1;
+  }
+  
+  .user-item .user-email {
+    flex: 2;
+    color: #757575;
+  }
+  
+  .user-item .user-phone {
+    flex: 1;
+    text-align: right;
+    color: #999;
+  }
+  
+  /* Footer Styles */
+  footer {
+    background-color: #212121;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    height: 11vh;
+    margin-top: auto;
+  }
+  
+  footer p {
+    font-size: 1.2em;
+  }
+  
+  footer .social-links {
+    margin-top: 7px;
+  }
+  
+  footer .social-links a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1.1em;
+  }
+  
+  footer .social-links a:hover {
+    color: #ff9800;
+  }
+
+  /* Header Row Styling */
+.user-item.header {
+    background-color: #e0e0e0; /* Light gray background */
+    font-weight: bold;
+    border: none; /* Remove box shadow for the header */
+    padding: 15px;
+    margin-bottom: 0px;
+    box-shadow: none;
+  }
+  
+  .user-item.header span {
+    font-size: 1.2em;
+    color: #333;
+    text-transform: uppercase; /* Optional: Make the headers uppercase */
+  }
+  
