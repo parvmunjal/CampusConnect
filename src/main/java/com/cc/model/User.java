@@ -23,6 +23,11 @@ public class User {
     
     private String phoneNumber;
 
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+
+
     @ManyToMany(mappedBy = "users")
     @JsonIgnore  // Prevents circular reference when serializing
     private Set<Event> events = new HashSet<>();

@@ -16,8 +16,7 @@ import java.util.List;
 public class VenueAvailabilityController {
     @Autowired
     private VenueAvailabilityService venueAvailabilityService;
-
-
+    
     //create availability
     @PostMapping
     public ResponseEntity<VenueAvailability> createAvailability(@RequestBody VenueAvailability venueAvailability){
