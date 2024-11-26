@@ -7,6 +7,7 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #d32f2f, #f06292);
 }
 
 /* Navbar Styling */
@@ -26,6 +27,7 @@ body {
 .navbar .logo {
   font-size: 24px;
   font-weight: bold;
+  color: #fbc02d;
 }
 
 .navbar ul {
@@ -49,7 +51,7 @@ body {
 
 /* Hero Section Styling */
 .hero {
-  background-color: #d32f2f;  /* Gradient background */
+  background: linear-gradient(135deg, #d32f2f, #f06292);  /* Gradient background */
   color: white;
   height: 89vh;
   display: flex;

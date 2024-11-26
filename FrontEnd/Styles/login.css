@@ -1,0 +1,179 @@
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #d32f2f, #f06292); /* Gradient background */
+    color: #212121;
+  }
+  
+  /* Navbar Styling */
+  .navbar {
+    background-color: rgba(33, 33, 33, 0.9); /* Semi-transparent for modern look */
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .navbar .logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fbc02d; /* Highlighted logo text */
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  .navbar ul li {
+    margin: 0 20px;
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar a:hover {
+    color: #ff9800; /* Accent color for hover effect */
+  }
+  
+  /* Auth Container */
+  .auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 89vh;
+    margin-top: 70px;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .login-section, .register-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-card, .register-card {
+    width: 80%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow for emphasis */
+    border-radius: 15px; /* Rounded edges */
+    padding: 30px;
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2em;
+    color: #d32f2f;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for text */
+  }
+  
+  /* Form Styling */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #fdfdfd; /* Light background for inputs */
+    transition: border-color 0.3s ease;
+  }
+  
+  input:focus, select:focus {
+    outline: none;
+    border-color: #d32f2f; /* Accent border on focus */
+    box-shadow: 0 0 6px rgba(211, 47, 47, 0.5); /* Glowing focus effect */
+  }
+  
+  button.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #d32f2f;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  button.btn:hover {
+    background-color: #b71c1c;
+    transform: scale(1.05); /* Slightly enlarge on hover */
+  }
+  
+  /* Footer Styles */
+  footer {
+    background-color: rgba(33, 33, 33, 0.9);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    height: 11vh;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Shadow at the top of footer */
+  }
+  
+  footer p {
+    font-size: 1.2em;
+  }
+  
+  footer .social-links {
+    margin-top: 10px;
+  }
+  
+  footer .social-links a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+  }
+  
+  footer .social-links a:hover {
+    color: #ff9800;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .auth-container {
+      flex-direction: column;
+      padding: 10px;
+    }
+  
+    .login-card, .register-card {
+      margin-bottom: 20px;
+    }
+  }
+  
