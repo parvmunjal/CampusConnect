@@ -11,7 +11,7 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
-
+private final static String SECRET_KEY="ddeuhdeuwgdeuh7237832gdsgdshsdeeee1212dsdss";
 
     public String generateToken(String email, Role role) {
         return Jwts.builder()

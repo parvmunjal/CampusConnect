@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
         // Open the popup
         document.getElementById("event-popup").style.display = "flex";
-      })
+      }) 
       .catch(error => {
         console.error("Error fetching event details:", error);
       });

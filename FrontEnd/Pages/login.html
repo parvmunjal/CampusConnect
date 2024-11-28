@@ -14,58 +14,77 @@
   <nav class="navbar">
     <div class="logo">Campus Connect</div>
     <ul>
-      <li><a href="/home">Home</a></li>
+      <li><a href="/Pages/landing_page.html">Home</a></li>
       <li><a href="/contact">Contact</a></li>
-      <li><a href="/signin">SignIn/SignUp</a></li>
+      <li><a href="/Pages/login.html">SignIn/SignUp</a></li>
     </ul>
   </nav>
+ <!-- Login & Signup Section -->
+ <section class="auth-container">
+  <!-- Login Section -->
+  <div class="login-section">
+    <div class="login-card">
+      <h2>Sign In</h2>
+      <p class="login-text">Already have an account? Sign in here.</p>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" placeholder="Enter your password" required>
+        </div>
+        <button type="submit" class="btn">Login</button>
+      </form>
+    </div>
+  </div>
 
-  <!-- Login & Signup Section -->
-  <section class="auth-container">
-    <div class="login-section">
-      <div class="login-card">
-        <h2>Sign In</h2>
-        <form>
-          <div class="form-group">
-            <label for="login-email">Email</label>
-            <input type="email" id="login-email" placeholder="Enter your email">
-          </div>
-          <div class="form-group">
-            <label for="login-password">Password</label>
-            <input type="password" id="login-password" placeholder="Enter your password">
-          </div>
-          <button type="submit" class="btn">Login</button>
-        </form>
-      </div>
+  <!-- Register Section -->
+  <div class="register-section">
+    <div class="register-card">
+      <h2>Sign Up</h2>
+      <p class="register-text">New here? Create an account to join Campus Connect.</p>
+      <form id="signup-form">
+        <div class="form-group">
+          <label for="register-name">Name</label>
+          <input type="text" id="register-name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="register-email">Email</label>
+          <input type="email" id="register-email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="register-password">Password</label>
+          <input type="password" id="register-password" placeholder="Enter your password" required>
+        </div>
+        <div class="form-group">
+          <label for="phone-number">Phone Number</label>
+          <input type="number" id="phone-number" placeholder="Enter your phone number" required>
+        </div>
+        <div class="form-group">
+          <label for="register-role">Role</label>
+          <select id="register-role" required>
+            <option value="USER">User</option>
+            <option value="ORGANIZER">Organizer</option>
+          </select>
+        </div>
+        <!-- Organizer-specific fields -->
+  <div id="organizer-fields" style="display: none;">
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" placeholder="Enter description"></textarea>
     </div>
-    <div class="register-section">
-      <div class="register-card">
-        <h2>Sign Up</h2>
-        <form>
-          <div class="form-group">
-            <label for="register-name">Name</label>
-            <input type="text" id="register-name" placeholder="Enter your name">
-          </div>
-          <div class="form-group">
-            <label for="register-email">Email</label>
-            <input type="email" id="register-email" placeholder="Enter your email">
-          </div>
-          <div class="form-group">
-            <label for="register-password">Password</label>
-            <input type="password" id="register-password" placeholder="Enter your password">
-          </div>
-          <div class="form-group">
-            <label for="register-role">Role</label>
-            <select id="register-role">
-              <option value="user">User</option>
-              <option value="organizer">Organizer</option>
-            </select>
-          </div>
-          <button type="submit" class="btn">Register</button>
-        </form>
-      </div>
+    <div class="form-group">
+      <label for="dp-url">DP URL</label>
+      <input type="url" id="dp-url" placeholder="Enter profile picture URL">
     </div>
-  </section>
+  </div>
+        <button type="submit" class="btn">Register</button>
+      </form>
+    </div>
+  </div>
+</section>
 
   <!-- Footer -->
   <footer>
@@ -75,5 +94,6 @@
       <a href="https://www.instagram.com/parv.1350/">Instagram</a>
     </div>
   </footer>
+  <script src="/Js/login.js"></script>
 </body>
 </html>

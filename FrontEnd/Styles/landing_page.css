@@ -12,7 +12,7 @@ body {
 
 /* Navbar Styling */
 .navbar {
-  background-color: #212121; /* Deep blue */
+  background-color: rgba(33, 33, 33, 0.9); /* Semi-transparent for modern look */
   color: white;
   padding: 15px 30px;
   display: flex;
@@ -22,12 +22,13 @@ body {
   top: 0;
   width: 100%;
   z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .navbar .logo {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
-  color: #fbc02d;
+  color: #fbc02d; /* Highlighted logo text */
 }
 
 .navbar ul {
@@ -43,10 +44,12 @@ body {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  font-size: 1.1em;
+  transition: color 0.3s ease;
 }
 
 .navbar a:hover {
-  text-decoration: underline;
+  color: #ff9800; /* Accent color for hover effect */
 }
 
 /* Hero Section Styling */

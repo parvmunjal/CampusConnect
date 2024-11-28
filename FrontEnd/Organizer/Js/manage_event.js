@@ -1,5 +1,6 @@
+const organizerId=localStorage.getItem('organizerId')
 async function loadManageEvents() {
-    const organizerId = 1; // Adjust based on your implementation
+    
   
     try {
         const response = await fetch(`http://localhost:8080/events/byorganizer/${organizerId}`);

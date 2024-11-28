@@ -33,9 +33,12 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable) // Disable CSRF (customized as per the new API)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**").permitAll() // Public endpoints for authentication
-                        .requestMatchers("/admin/**").hasRole("ADMIN") // Restrict admin endpoints
-                        .requestMatchers("/organizer/**").hasRole("ORGANIZER") // Restrict organizer endpoints
-                        .requestMatchers("/user/**").hasRole("USER") // Restrict user endpoints
+                        .requestMatchers("/admin/**").permitAll()
+                        .requestMatchers("availability/**").permitAll()// Restrict admin endpoints// Restrict organizer endpoints
+                        .requestMatchers("/users/**").permitAll()
+                        .requestMatchers("/organizers/**").permitAll()
+                        .requestMatchers("/events/**").permitAll()
+                        .requestMatchers("/bookings/**").permitAll()// Restrict user endpoints
                         .anyRequest().authenticated() // All other requests require authentication
                 )
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);

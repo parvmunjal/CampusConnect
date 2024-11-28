@@ -2,7 +2,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const eventId = urlParams.get('eventId'); // Using 'eventId' from the query parameter
 const organizersApiUrl = 'http://localhost:8080/organizers';
-
+const userId = localStorage.getItem('userId');
 // Function to get organizer details by ID
 async function getOrganizerName(organizerId) {
   try {
@@ -19,7 +19,7 @@ async function getOrganizerName(organizerId) {
 // Function to fetch user details by ID (for user ID 2)
 async function getUserDetails() {
   try {
-    const response = await fetch(`http://localhost:8080/users/2`);
+    const response = await fetch(`http://localhost:8080/users/${userId}`);
     if (!response.ok) throw new Error('Failed to fetch user details');
 
     const user = await response.json();
@@ -99,7 +99,7 @@ async function showRegistrationPopup(event, registrationFee) {
   const user = await getUserDetails();
 
   if (!user || registrationFee === undefined) {
-    alert('Failed to fetch user or event details!');
+    alert('Please login to register!');
     return;
   }
 
@@ -123,7 +123,6 @@ async function submitRegistrationForm(event) {
   const email = document.getElementById('popup-email').value;
   const phone = document.getElementById('popup-phone').value;
   const registrationNumber = document.getElementById('popup-registration-number').value;
-  const userId = 2; // Hardcoded for now
   const registrationData = {
     name,
     email,
@@ -157,3 +156,28 @@ document.addEventListener('DOMContentLoaded', loadEventDetails);
 
 // Register form submission event
 document.getElementById('registration-form').addEventListener('submit', submitRegistrationForm);
+document.addEventListener('DOMContentLoaded', function () {
+  const authButton = document.getElementById('auth-button');
+
+  // Check if the user is logged in
+  const token = localStorage.getItem('token');
+
+  if (token) {
+    // User is logged in, change button to "Logout"
+    authButton.textContent = 'Logout';
+    authButton.href = '#'; // Prevent navigation for Logout
+    authButton.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      // Clear localStorage and redirect to home
+      localStorage.removeItem('token');
+      localStorage.removeItem('userId');
+      alert('You have been logged out.');
+      window.location.href = '/Pages/landing_page.html'; // Redirect to homepage
+    });
+  } else {
+    // User is not logged in, ensure the button shows "SignIn/SignUp"
+    authButton.textContent = 'SignIn/SignUp';
+    authButton.href = '/Pages/login.html'; // Link to the SignIn/SignUp page
+  }
+});

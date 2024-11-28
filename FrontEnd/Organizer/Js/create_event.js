@@ -1,3 +1,7 @@
+const id=localStorage.getItem('organizerId')
+console.log(id)
+const token = localStorage.getItem('token');
+console.log(token)
 document.getElementById('poster-url').addEventListener('input', function() {
     const posterUrl = document.getElementById('poster-url').value;
     const posterPreview = document.getElementById('poster-preview');
@@ -30,9 +34,10 @@ document.getElementById('poster-url').addEventListener('input', function() {
       eventDate: eventDate,
       location: location,
       registrationFee: parseFloat(registrationFee), 
-      posterUrl: posterUrl,
-      organizerId:1
+      organizerId:id,
+      posterUrl: posterUrl
     };
+    console.log(eventData)
   
     // Send POST request to backend API
     fetch('http://localhost:8080/admin/events/create', {
@@ -54,5 +59,32 @@ document.getElementById('poster-url').addEventListener('input', function() {
       console.error('Error:', error);
       alert('An error occurred while send the event approval request');
     });
+  });
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const authButton = document.getElementById('auth-button');
+  
+    // Check if the user is logged in
+    const token = localStorage.getItem('token');
+    //console.log(token)
+    if (token) {
+      // User is logged in, change button to "Logout"
+      authButton.textContent = 'Logout';
+      authButton.href = '#'; // Prevent navigation for Logout
+      authButton.addEventListener('click', function (e) {
+        e.preventDefault();
+  
+        // Clear localStorage and redirect to home
+        localStorage.removeItem('token');
+        localStorage.removeItem('userId');
+        alert('You have been logged out.');
+        window.location.href = '/Organizer/Pages/landing_page.html'; // Redirect to homepage
+      });
+    } else {
+      // User is not logged in, ensure the button shows "SignIn/SignUp"
+      authButton.textContent = 'SignIn/SignUp';
+      authButton.href = '/Pages/login.html'; // Link to the SignIn/SignUp page
+    }
   });
   
