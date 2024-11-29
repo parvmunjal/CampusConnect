@@ -34,7 +34,7 @@ public class EventService {
         return eventRepo.findById(eventId).orElseThrow();
     }
     //register event by user
-    public Event registerEvent(Long eventId,Long userId){
+    public Event registerEvent(Long eventId,Long userId) {
         Event event = eventRepo.findById(eventId).orElseThrow();
         User user = userRepo.findById(userId).orElseThrow();
 
@@ -44,7 +44,6 @@ public class EventService {
         userRepo.save(user);
         return eventRepo.save(event);
     }
-    //get event by organizer id
     public List<Event> getEventByOrganizerId(Long organizerId){
         return eventRepo.findByOrganizerId(organizerId);
     }
