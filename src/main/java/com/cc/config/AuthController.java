@@ -2,7 +2,6 @@ package com.cc.config;
 
 import com.cc.exceptions.EntityNotFoundException;
 import com.cc.model.Organizer;
-import com.cc.model.Role;
 import com.cc.model.User;
 import com.cc.repo.OrganizerRepo;
 import com.cc.repo.UserRepo;
