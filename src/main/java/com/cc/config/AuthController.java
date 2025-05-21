@@ -1,13 +1,20 @@
 package com.cc.config;
 
+import com.cc.exceptions.EntityNotFoundException;
 import com.cc.model.Organizer;
 import com.cc.model.Role;
 import com.cc.model.User;
 import com.cc.repo.OrganizerRepo;
 import com.cc.repo.UserRepo;
+import com.cc.service.UserService;
 import com.cc.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +25,7 @@ public class AuthController {
 
     @Autowired
     private UserRepo userRepository;
+
     @Autowired
     private OrganizerRepo organizerRepo;
 
@@ -27,15 +35,18 @@ public class AuthController {
     @Autowired
     private JwtUtil jwtUtil;
 
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private UserService userService;
+
     @PostMapping("/signup")
     public ResponseEntity<User> signup(@RequestBody User user) {
-        if (userRepository.findByEmail(user.getEmail()).isPresent()) {
-            throw new RuntimeException("Email already exists");
-        }
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        User saved = userRepository.save(user);
-        return ResponseEntity.ok(saved);
+        User createdUser = userService.createUser(user);
+        return ResponseEntity.ok(createdUser);
     }
+
     @PostMapping("/organizersignup")
     public ResponseEntity<Organizer> organizerSignup(@RequestBody Organizer organizer) {
         if (organizerRepo.findByEmail(organizer.getEmail()).isPresent()) {
@@ -50,33 +61,15 @@ public class AuthController {
     @PostMapping("/signin")
     public ResponseEntity<?> signin(@RequestBody AuthRequest request) {
         // First, attempt to find the user in the User table
-        User user = userRepository.findByEmail(request.getEmail()).orElse(null);
-
-        if (user != null) {
-            // Validate password for the user
-            if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
-                throw new RuntimeException("Invalid email or password");
-            }
-
-            // Generate token for the user
-            String token = jwtUtil.generateToken(user.getEmail(), user.getRole());
-            return ResponseEntity.ok(new AuthResponse(token, user.getRole(), user.getId()));
+        User user = userRepository.findByEmail(request.getEmail()).orElseThrow(() -> new EntityNotFoundException("user"));
+        try {
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
+            );
+        } catch (BadCredentialsException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
         }
-
-        // If user is not found, check in the Organizer table
-        Organizer organizer = organizerRepo.findByEmail(request.getEmail()).orElseThrow(() ->
-                new RuntimeException("Invalid email or password")
-        );
-
-        // Validate password for the organizer
-        if (!passwordEncoder.matches(request.getPassword(), organizer.getPassword())) {
-            throw new RuntimeException("Invalid email or password");
-        }
-
-        // Generate token for the organizer
-        String token = jwtUtil.generateToken(organizer.getEmail(), Role.valueOf("ROLE_ORGANIZER"));
-        return ResponseEntity.ok(new AuthResponse(token, Role.valueOf("ROLE_ORGANIZER"), organizer.getId()));
+            String token = jwtUtil.generateToken(request.getEmail());
+            return ResponseEntity.ok(new AuthResponse(token, user.getId()));
     }
-
-
 }

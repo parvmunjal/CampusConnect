@@ -1,5 +1,6 @@
 package com.cc.controller;
 
+import com.cc.model.Role;
 import com.cc.model.User;
 import com.cc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,11 @@ public class UserController {
     @GetMapping("/{userId}")
     public ResponseEntity<User> getUserById(@PathVariable Long userId){
         User user = userService.getUserById(userId);
+        return ResponseEntity.ok(user);
+    }
+    @GetMapping("/email/{email}")
+    public ResponseEntity<User> getUserByEmail(@PathVariable String email){
+        User user = userService.getUserByEmail(email);
         return ResponseEntity.ok(user);
     }
     @GetMapping
