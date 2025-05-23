@@ -1,10 +1,10 @@
 package com.cc.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -26,4 +26,8 @@ public class Organizer {
     private String dpUrl;
 
     private String eventGallery;
+
+    @OneToMany
+    @JsonIgnore
+    private List<Event> events;
 }

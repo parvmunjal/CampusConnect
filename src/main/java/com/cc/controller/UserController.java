@@ -38,4 +38,9 @@ public class UserController {
         List<User> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
     }
+    @GetMapping("/event/{eventId}")
+    public ResponseEntity<List<User>> getAllUsersByEventId(@PathVariable Long eventId){
+        List<User> users = userService.getUsersByEventId(eventId);
+        return ResponseEntity.ok(users);
+    }
 }

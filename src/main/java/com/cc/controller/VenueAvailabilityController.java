@@ -24,8 +24,8 @@ public class VenueAvailabilityController {
         return new ResponseEntity<>(availability, HttpStatus.CREATED);
     }
     //get all by date
-    @GetMapping("{date}")
-    public ResponseEntity<List<VenueAvailability>> getAll(@PathVariable LocalDate date){
+    @GetMapping
+    public ResponseEntity<List<VenueAvailability>> getAll(@RequestParam LocalDate date){
         List<VenueAvailability> availabilities = venueAvailabilityService.getAllByDate(date);
         return ResponseEntity.ok(availabilities);
     }

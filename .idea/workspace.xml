@@ -6,10 +6,35 @@
   <component name="ChangeListManager">
     <list default="true" id="93d58f2e-684b-48bc-b734-925f5e7b8597" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/config/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cc/config/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cc/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/cc/config/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cc/config/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/controller/EventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cc/controller/EventController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cc/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/controller/UserEventController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/controller/VenueAvailabilityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cc/controller/VenueAvailabilityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/model/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cc/model/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/model/Organizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cc/model/Organizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cc/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/model/UserEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/payload/UserEventId.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/repo/EventRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cc/repo/EventRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/repo/UserEventRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/service/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cc/service/EventService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/service/UserEventService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cc/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cc/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/cc/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cc/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cc/controller/EventController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cc/controller/EventController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cc/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cc/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cc/controller/UserEventController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cc/model/Event.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cc/model/Event.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cc/model/Organizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cc/model/Organizer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cc/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cc/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cc/model/UserEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cc/payload/UserEventId.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cc/repo/EventRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cc/repo/EventRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cc/repo/UserEventRepo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cc/service/EventService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cc/service/EventService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cc/service/UserEventService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cc/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cc/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

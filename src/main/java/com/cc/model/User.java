@@ -26,17 +26,13 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-
-
     @ManyToMany(mappedBy = "users")
     @JsonIgnore  // Prevents circular reference when serializing
     private Set<Event> events = new HashSet<>();
 
-    // Constructors, Getters, and Setters
 
     @Override
     public int hashCode() {
-        // Generate hash code based only on unique fields to avoid circular reference
         return Objects.hash(id, email, name, phoneNumber);
     }
 

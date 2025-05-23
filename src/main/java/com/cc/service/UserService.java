@@ -2,7 +2,9 @@ package com.cc.service;
 
 import com.cc.exceptions.EntityAlreadyExistsException;
 import com.cc.exceptions.EntityNotFoundException;
+import com.cc.model.Event;
 import com.cc.model.User;
+import com.cc.repo.EventRepo;
 import com.cc.repo.UserRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +13,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
+
 @Service
 public class UserService {
     private static final Logger logger = LoggerFactory.getLogger(UserService.class);
@@ -19,6 +25,8 @@ public class UserService {
     private UserRepo userRepo;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private EventRepo eventRepo;
 
     //create user
     public User createUser(User user){
@@ -51,5 +59,10 @@ public class UserService {
         User user=userRepo.findByEmail(email).orElseThrow(EntityNotFoundException::new);
         logger.info("User found:{}",user);
         return user;
+    }
+    public List<User> getUsersByEventId(Long eventId){
+        Event event = eventRepo.findById(eventId).orElseThrow(() -> new EntityNotFoundException("event"));
+        Set<User> user = event.getUsers();
+        return new ArrayList<>(user);
     }
 }

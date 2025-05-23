@@ -38,8 +38,12 @@ public class Event {
             joinColumns = @JoinColumn(name = "event_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
-    @JsonIgnore  // Prevents circular reference when serializing
+    @JsonIgnore
     private Set<User> users = new HashSet<>();
+
+    private boolean pendingStatus;
+
+    private boolean rejectStatus;
 
     // Constructors, Getters, and Setters
 

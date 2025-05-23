@@ -51,4 +51,34 @@ public class EventController {
         Event updatedEvent = eventService.updateEvent(event, eventId);
         return ResponseEntity.ok(updatedEvent);
     }
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Event>> getAllEventsByUserId(@PathVariable Long userId){
+        List<Event> events = eventService.getAllEventsByUserId(userId);
+        return ResponseEntity.ok(events);
+    }
+    @GetMapping("/pending")
+    public ResponseEntity<List<Event>> getAllPendingApprovalEvents(){
+        List<Event> allPendingEvents = eventService.getAllPendingEvents();
+        return ResponseEntity.ok(allPendingEvents);
+    }
+    @GetMapping("/pending/{eventId}")
+    public ResponseEntity<Event> getPendingApprovalEventById(@PathVariable Long eventId){
+        Event event = eventService.getPendingEventById(eventId);
+        return ResponseEntity.ok(event);
+    }
+    @PatchMapping("/pending/approve/{eventId}")
+    public ResponseEntity<Event> approvePendingEvent(@PathVariable  Long eventId){
+        Event event = eventService.approveEvent(eventId);
+        return ResponseEntity.ok(event);
+    }
+    @PatchMapping("/pending/reject/{eventId}")
+    public ResponseEntity<Event> rejectPendingEvent(@PathVariable Long eventId){
+        Event event = eventService.rejectEvent(eventId);
+        return ResponseEntity.ok(event);
+    }
+    @GetMapping("/approved")
+    public ResponseEntity<List<Event>> getAllApprovedEvents(){
+        List<Event> events = eventService.getAllApprovedEvents();
+        return ResponseEntity.ok(events);
+    }
 }
