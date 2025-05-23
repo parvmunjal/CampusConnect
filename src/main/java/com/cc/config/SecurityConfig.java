@@ -24,7 +24,7 @@ public class SecurityConfig {
     private final JwtUtil jwtUtil;
     private final JwtRequestFilter jwtRequestFilter;
     private final String[] USER_ENDPOINTS={
-            "/users/[0-9]+","/bookings/user/**","/events/**","/events"
+            "/users/[0-9]+","/bookings/user/**","/events/**","/events","/users/**"
     };
     private final String[] ORGANIZER_ENDPOINTS={
             "/events/**","/availability","/users/**"
