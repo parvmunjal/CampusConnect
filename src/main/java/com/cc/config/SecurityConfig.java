@@ -23,6 +23,15 @@ public class SecurityConfig {
 
     private final JwtUtil jwtUtil;
     private final JwtRequestFilter jwtRequestFilter;
+    private final String[] USER_ENDPOINTS={
+            "/users/[0-9]+","/bookings/user/**","/events/**","/events"
+    };
+    private final String[] ORGANIZER_ENDPOINTS={
+            "/events/**","/availability","/users/**"
+    };
+    private final String[] ADMIN_ENDPOINTS={
+            "/availability/**","/events/**"
+    };
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
     public SecurityConfig(JwtUtil jwtUtil, JwtRequestFilter jwtRequestFilter) {
@@ -36,9 +45,10 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/**","/organizers","/organizers/**","/events/**","/availability").permitAll()
-                        .requestMatchers("/users/**","/bookings/user/**").hasAnyRole("USER","ADMIN")
-                        //.requestMatchers("/organizers","/organizers/**").hasAnyRole("ORGANIZER","ADMIN")
+                        .requestMatchers("/auth/**","/organizers/**").permitAll()
+                        .requestMatchers(USER_ENDPOINTS).hasRole("USER")
+                        .requestMatchers(ORGANIZER_ENDPOINTS).hasRole("ORGANIZER")
+                        .requestMatchers(ADMIN_ENDPOINTS).hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .userDetailsService(userDetailsService)

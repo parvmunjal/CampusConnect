@@ -47,7 +47,7 @@ public class UserService {
     //get user by id
     public User getUserById(Long userId){
         User user = userRepo.findById(userId).orElseThrow(EntityNotFoundException::new);
-        logger.info("User found:{}",user);
+        logger.info("User found with userId:{}",userId);
         return user;
     }
     //get all users
@@ -57,7 +57,7 @@ public class UserService {
     public User getUserByEmail(String email){
         logger.info("Email {}",email);
         User user=userRepo.findByEmail(email).orElseThrow(EntityNotFoundException::new);
-        logger.info("User found:{}",user);
+        logger.info("User found with userId:{}",user.getId());
         return user;
     }
     public List<User> getUsersByEventId(Long eventId){
