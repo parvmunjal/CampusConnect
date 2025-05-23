@@ -32,6 +32,8 @@ public class EventService {
     public Event createEvent(Event event){
         Organizer organizer = organizerRepo.findById(event.getOrganizer().getId())
                 .orElseThrow(() -> new EntityNotFoundException("organizer"));
+        event.setPendingStatus(true);
+        event.setRejectStatus(false);
         Event savedEvent=eventRepo.save(event);
         if(organizer.getEvents().isEmpty()){
             organizer.setEvents(new ArrayList<>());
