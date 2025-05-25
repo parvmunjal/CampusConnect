@@ -13,7 +13,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/organizers")
-@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class OrganizerController {
     @Autowired
     private OrganizerService organizerService;
