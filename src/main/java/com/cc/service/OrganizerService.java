@@ -33,8 +33,9 @@ public class OrganizerService {
         user.setPassword(organizer.getPassword());
         user.setRole(Role.ROLE_ORGANIZER);
         user.setPhoneNumber(organizer.getPhoneNumber());
-        userService.createUser(user);
+        User savedUser=userService.createUser(user);
         organizer.setPassword(passwordEncoder.encode(organizer.getPassword()));
+        organizer.setUser(savedUser);
         Organizer savedOrganizer = organizerRepo.save(organizer);
         logger.info("Organizer created with id: {}", savedOrganizer.getId());
         return savedOrganizer;
@@ -46,5 +47,8 @@ public class OrganizerService {
     //get all organizers
     public List<Organizer> getAllOrganizers(){
         return organizerRepo.findAll();
+    }
+    public Organizer getOrganizerByUserId(Long userId){
+        return organizerRepo.findByUserId(userId).orElseThrow(()->new EntityNotFoundException("organizer"));
     }
 }

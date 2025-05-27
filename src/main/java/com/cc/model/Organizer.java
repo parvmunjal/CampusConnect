@@ -27,6 +27,10 @@ public class Organizer {
 
     private String eventGallery;
 
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @OneToMany
     @JsonIgnore
     private List<Event> events;

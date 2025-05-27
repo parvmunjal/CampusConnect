@@ -32,4 +32,9 @@ public class OrganizerController {
         List<Organizer> organizers = organizerService.getAllOrganizers();
         return ResponseEntity.ok(organizers);
     }
+    @GetMapping("/byuser/{userId}")
+    public ResponseEntity<Organizer> getOrganizerByUserId(@PathVariable Long userId){
+        Organizer organizer = organizerService.getOrganizerByUserId(userId);
+        return ResponseEntity.ok(organizer);
+    }
 }

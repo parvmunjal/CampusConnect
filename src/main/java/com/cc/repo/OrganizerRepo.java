@@ -8,4 +8,5 @@ import java.util.Optional;
 
 public interface OrganizerRepo extends JpaRepository<Organizer,Long> {
     Optional<Organizer> findByEmail(String email);
+    Optional<Organizer> findByUserId(Long userId);
 }
