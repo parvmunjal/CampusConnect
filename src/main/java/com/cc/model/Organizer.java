@@ -28,7 +28,7 @@ public class Organizer {
     private String eventGallery;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id",nullable = false,unique = true)
     private User user;
 
     @OneToMany
