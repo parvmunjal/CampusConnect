@@ -27,7 +27,8 @@ public class EventService {
     @Autowired
     private OrganizerRepo organizerRepo;
     private static final Logger logger = LoggerFactory.getLogger(EventService.class);
-
+    @Autowired
+    private OrganizerService organizerService;
     //create event
     public Event createEvent(Event event){
         Organizer organizer = organizerRepo.findById(event.getOrganizer().getId())
@@ -70,7 +71,9 @@ public class EventService {
         userRepo.save(user);
         return eventRepo.save(event);
     }
-    public List<Event> getEventByOrganizerId(Long organizerId){
+    public List<Event> getEventByOrganizerId(Long userId){
+        Organizer organizer = organizerService.getOrganizerByUserId(userId);
+        Long organizerId= organizer.getId();
         if(!organizerRepo.existsById(organizerId)){
             logger.error("Organizer doesn't exist by organizerId: {}",organizerId);
             throw new EntityNotFoundException("organizer");
