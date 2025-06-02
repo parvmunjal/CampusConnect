@@ -31,7 +31,10 @@ public class EventService {
     private OrganizerService organizerService;
     //create event
     public Event createEvent(Event event){
-        Organizer organizer = organizerRepo.findById(event.getOrganizer().getId())
+        Long userId=event.getOrganizer().getId();
+        Organizer organizerByUserId = organizerService.getOrganizerByUserId(userId);
+        Long organizerId=organizerByUserId.getId();
+        Organizer organizer = organizerRepo.findById(organizerId)
                 .orElseThrow(() -> new EntityNotFoundException("organizer"));
         event.setPendingStatus(true);
         event.setRejectStatus(false);
