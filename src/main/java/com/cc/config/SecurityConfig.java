@@ -29,7 +29,7 @@ public class SecurityConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:3000","http://127.0.0.1:5500/")
+                        .allowedOrigins("http://localhost:3000","http://127.0.0.1:5500/","https://zippy-bavarois-8331f1.netlify.app")
                         .allowedMethods("*")
                         .allowedHeaders("*")
                         .allowCredentials(true);
