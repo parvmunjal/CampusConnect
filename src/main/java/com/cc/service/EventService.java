@@ -29,6 +29,8 @@ public class EventService {
     private static final Logger logger = LoggerFactory.getLogger(EventService.class);
     @Autowired
     private OrganizerService organizerService;
+    @Autowired
+    private EmailService emailService;
     //create event
     public Event createEvent(Event event){
         Long userId=event.getOrganizer().getId();
@@ -73,6 +75,11 @@ public class EventService {
         event.getUsers().add(user);
 
         userRepo.save(user);
+        String to=user.getEmail();
+        String subject="Registration Confirmed: "+event.getEventName();
+        String body=String.format("Hello %s,\n\nYou have successfully registered for the event '%s' scheduled on %s at %s.\n\nThank you!",
+               user.getName(),event.getEventName(),event.getEventDate(),event.getLocation());
+        emailService.sendEmail(to,subject,body);
         return eventRepo.save(event);
     }
     public List<Event> getEventByOrganizerId(Long userId){
@@ -121,6 +128,10 @@ public class EventService {
             throw new IllegalArgumentException("Event is already approved");
         }
         event.setPendingStatus(false);
+        String to=event.getOrganizer().getEmail();
+        String subject="Your Event Has Been Approved!";
+        String body=String.format("Dear %s,\n\nYour event '%s' has been approved and is now live on Campus Connect!", event.getOrganizer().getName(), event.getEventName());
+        emailService.sendEmail(to,subject,body);
         return eventRepo.save(event);
     }
     public Event rejectEvent(Long eventId){
@@ -130,6 +141,11 @@ public class EventService {
             throw new IllegalArgumentException("Event is already approved");
         }
         event.setRejectStatus(true);
+        String to=event.getOrganizer().getEmail();
+        String subject="Your Event Has Been Rejected";
+        String body=String.format("Dear %s,\n\nUnfortunately, your event '%s' has been rejected. Please review the event and resubmit.",
+                event.getOrganizer().getName(), event.getEventName());
+        emailService.sendEmail(to,subject,body);
         return eventRepo.save(event);
     }
     public List<Event> getAllApprovedEvents(){
